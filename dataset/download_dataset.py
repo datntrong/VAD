@@ -7,7 +7,7 @@ import pandas as pd
 def download_youtube_video(video_url):
     print("Downloading video..." + str(video_url))
     video_url_full = str("https://www.youtube.com/" + video_url)
-    yt = YouTube(video_url_full)
+    yt = YouTube(video_url=video_url_full)
     video = yt.streams.filter(only_audio=True).first()
     out_file = video.download(output_path="./ava-speech")
     base, ext = os.path.splitext(out_file)
